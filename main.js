@@ -138,12 +138,17 @@ function moveEnemy() {
         let enemyRect = item.getBoundingClientRect();
 
         if (
-            carRect.top <= enemyRect.bottom &&
-            carRect.right >= enemyRect.left &&
-            carRect.left <= enemyRect.right &&
-            carRect.bottom >= enemyRect.top
+            carRect.top <= enemyRect.bottom - 8 &&
+            carRect.right >= enemyRect.left + 8 &&
+            carRect.left <= enemyRect.right -8 &&
+            carRect.bottom >= enemyRect.top + 8
         ) {
             setting.start = false;
+            setting.counter += 1;
+            // localStorage.setItem(setting.counter, setting.score);
+            // if(setting.score > localStorage.getItem(setting.counter)) {
+            //   alert(`BEST SCORE - ${setting.score}!!!`);
+            // }
             start.classList.remove('hide');
             start.style.top = score.offsetHeight + 'px';
         }
